@@ -31,9 +31,11 @@ function playRound(humanChoice, computerChoice) {
     } else if (indexDifference === 1 || indexDifference === -2) {
         console.log(`You win! ${capitalize(humanChoice)} beats ${capitalize(computerChoice)}`);
         humanScore++;
-    } else {
+    } else if (indexDifference === 2 || indexDifference === -1) {
         console.log(`You lose! ${capitalize(computerChoice)} beats ${capitalize(humanChoice)}`);
         computerScore++;
+    } else {
+        console.log("There has been an error");
     }
 }
 
