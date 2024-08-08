@@ -1,11 +1,26 @@
 /* CLI version of the famous game 'Rock Paper Scissors'*/
 
 const POSSIBLE_CHOICES = ["rock", "paper", "scissors"];
-let humanScore, computerScore = 0;
+let humanScore = 0;
+let computerScore = 0;
 
-let humanChoice = getHumanChoice();
-let computerChoice = getComputerChoice();
-playRound(humanChoice, computerChoice);
+playGame();
+
+function playGame() {
+    for (let i = 0; i < 5; i++) {
+        let humanChoice = getHumanChoice();
+        let computerChoice = getComputerChoice();
+        playRound(humanChoice, computerChoice);
+        console.log(`Current score: Human ${humanScore}   Computer ${computerScore}`)
+    }
+    if (humanScore > computerScore) {
+        console.log("Congrats! You win the whole game :)");
+    } else if (humanScore < computerScore) {
+        console.log("Bummer.. You lose the whole game :(");
+    } else {
+        console.log("Wow! It's a tie!");
+    }
+}
 
 function playRound(humanChoice, computerChoice) {
     let indexHumanChoice = POSSIBLE_CHOICES.indexOf(humanChoice);
@@ -38,8 +53,7 @@ function getHumanChoice() {
     do {
         choice = prompt("What do you choose?");
         if (POSSIBLE_CHOICES.indexOf(choice.toLowerCase()) === -1) {
-            alert(`You have to choose between "${POSSIBLE_CHOICES[0]}",\
-                "${POSSIBLE_CHOICES[1]}" and "${POSSIBLE_CHOICES[2]}".`);
+            alert(`You have to choose between "${POSSIBLE_CHOICES[0]}", "${POSSIBLE_CHOICES[1]}" and "${POSSIBLE_CHOICES[2]}"`);
         }
     } while (POSSIBLE_CHOICES.indexOf(choice.toLowerCase()) === -1);
     return choice;
