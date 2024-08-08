@@ -12,12 +12,12 @@ function playRound(humanChoice, computerChoice) {
     let indexComputerChoice = POSSIBLE_CHOICES.indexOf(computerChoice);
     let indexDifference = indexHumanChoice - indexComputerChoice;
     if (indexDifference === 0) {
-        console.log(`Tie! Both players chose ${humanChoice}`)
+        console.log(`Tie! Both players chose ${capitalize(humanChoice)}`)
     } else if (indexDifference === 1 || indexDifference === -2) {
-        console.log(`You win! ${humanChoice} beats ${computerChoice}`);
+        console.log(`You win! ${capitalize(humanChoice)} beats ${capitalize(computerChoice)}`);
         humanScore++;
     } else {
-        console.log(`You lose! ${computerChoice} beats ${humanChoice}`);
+        console.log(`You lose! ${capitalize(computerChoice)} beats ${capitalize(humanChoice)}`);
         computerScore++;
     }
 }
@@ -43,4 +43,8 @@ function getHumanChoice() {
         }
     } while (POSSIBLE_CHOICES.indexOf(choice.toLowerCase()) === -1);
     return choice;
+}
+
+function capitalize(text) {
+    return text.slice(0, 1).toUpperCase() + text.slice(1).toLowerCase();
 }
