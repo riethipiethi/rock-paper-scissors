@@ -17,17 +17,11 @@ function getHumanChoice() {
     let choice = "";
     do {
         choice = prompt("What do you choose?");
-        if (POSSIBLE_CHOICES.indexOf(choice) === -1) {
+        if (POSSIBLE_CHOICES.indexOf(choice.toLowerCase()) === -1) {
             alert(
                 `You have to choose between "${POSSIBLE_CHOICES[0]}", "${POSSIBLE_CHOICES[1]}" and "${POSSIBLE_CHOICES[2]}".`
             );
         }
-    } while (POSSIBLE_CHOICES.indexOf(choice) === -1);
+    } while (POSSIBLE_CHOICES.indexOf(choice.toLowerCase()) === -1);
     return choice;
 }
-
-let humanChoice = getHumanChoice();
-let computerChoice = getComputerChoice();
-
-console.log(humanChoice);
-console.log(computerChoice);
